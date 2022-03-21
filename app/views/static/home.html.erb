@@ -1,0 +1,51 @@
+<div class="container">
+
+
+  <div class="row mt-5">
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h3 class= "card-title">Welcome</h3>
+          <p class = "card-text">This website is to practice trading with the stock market. It only supports stock trading at the moment. The technologies used to build this website are Ruby on Rails for the web application, Heroku for hosting the application, Ruby for the backend, and finhub to connect to the stock market. It uses bootstrap for the frontend combined with some vanilla JS to create some cool functionality. It supports logging in and out with the session hash as a way to remember browser history.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-6 mt-5">
+      <div class="card flex-row">
+        <%=image_tag("52-week-highs.jpg", alt: "picure", height: "100", width: "100", class: "card-image p-2")%>
+        <div class="card-body">
+
+          <h3 class= "card-title">About Seth</h3>
+          <p class = "card-text">Seth is a senior at DePauw University looking for employment as a software engineer. Click on the About Seth link in the top right corner to learn more about me!</p>
+          <div class="text-center">
+            <%=link_to 'Learn More About Seth!', static_about_seth_path, class: 'btn btn-primary btn-lg'%>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 mt-5">
+      <div class="card">
+        <div class="card-body">
+          <h3 class= "card-title">Getting Started</h3>
+          <p class = "card-text">To get started, create an account. Then deposit fake money into your account and start trading. The idea is to deposit a lot of money into your account to practice trading with large amounts of money. All of the money on here is fake and cannot be withdrawn.</p>
+          <div class="text-center">
+            <%=link_to 'Sign Up!', '/signup', class: 'btn btn-primary btn-lg mx-auto'%>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>

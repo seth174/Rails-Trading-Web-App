@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <%=link_to 'Home', root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'About Seth', static_about_seth_path, class: 'nav-link' %>
+      </li>
+      <li><%= link_to "Sign up", '/signup', class: 'nav-link' %></li>
+      <%if logged_in?%>
+        <li><%= link_to "Edit Account", edit_user_path(current_user), class: 'nav-link' %></li>
+        <li><%= link_to "All Users", users_path, class: 'nav-link' %></li>
+      <%end%>
+    </ul>
+  </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav me-auto mb-lg-0">
+      <li>
+      <div class="d-flex flex-row bd-highlight">
+        <div class="p-2 bd-highlight align-self-center">
+
+          <%= image_tag "home_image.jpg", alt: "logo", height:"100", width: "220", class: "d-inline-block align-text-top", id: 'home_image' %>
+        </div>
+        <div class="pe-2 bd-highlight align-self-center">
+          <h1><%= link_to "Seth's Trading App", root_path, class: 'nav-link align-text-top' %></h1>
+        </div>
+      </div>
+      </li>
+    </ul>
+    <ul class="navbar-nav mx-auto">
+      <li>
+      <%= form_with url: "/search", method: :get do |form| %>
+        <div class="d-flex flex-row bd-highlight">
+          <div class="p-2 bd-highlight align-self-center"><%= form.label :query, "Search Stock:" %></div>
+          <div class="p-2 bd-highlight align-self-center"><%= form.text_field :query, class: 'form-control-lg'%></div>
+          <div class="p-2 bd-highlight align-self-center"><%= form.submit "Search", class: 'btn btn-warning btn-lg' %></div>
+        </div>
+      <% end %>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto mb-lg-0 p-2">
+      <%=link_to 'Login', '/login', class: 'btn btn-lg btn-danger' %>
+    </ul>
+  </div>
+</nav>

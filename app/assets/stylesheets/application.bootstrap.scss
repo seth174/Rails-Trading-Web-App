@@ -1,0 +1,21 @@
+$theme-colors: (
+  "primary": #ADD8E6,
+  "secondary":  #adb5bd,
+  "success":    #198754,
+  "info":       #0d6efd,
+  "warning":    #ffc107,
+  "danger":     #dc3545,
+  "light":      #20c997,
+  "dark":       #6610f2
+);
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+#home_image{
+  margin-left: 1rem;
+}
+
+#login{
+  margin-bottom: 1rem;
+}
