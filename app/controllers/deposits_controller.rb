@@ -14,7 +14,9 @@ class DepositsController < ApplicationController
       flash[:success] = "successfully deposited #{@deposit.amount} in your account"
       redirect_to current_user
     else
-      flash[:danger] = "Unable to deposit money into account"
+      @deposit.errors.full_messages.each() do |e|
+        flash[:danger] = e
+      end
       redirect_to '/deposit'
     end
   end

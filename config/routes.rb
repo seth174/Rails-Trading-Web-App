@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get '/withdraw', to: 'withdraws#new'
   get '/deposit', to: 'deposits#new'
   post '/depositMoney', to:'deposits#create'
+  post 'withdrawMoney', to: 'withdraws#create'
+
   get 'sessions/new'
   get 'users/new'
   get 'users/show'
