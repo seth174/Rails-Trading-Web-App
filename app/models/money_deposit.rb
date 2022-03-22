@@ -1,0 +1,2 @@
+class MoneyDeposit < ApplicationRecord
+end
