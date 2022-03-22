@@ -18,7 +18,10 @@ class UsersController < ApplicationController
        log_in @user
       redirect_to @user
     else
-      render 'new'
+      @user.errors.full_messages.each() do |e|
+        flash[:danger] = e
+      end
+      redirect_to '/signup'
     end
   end
 

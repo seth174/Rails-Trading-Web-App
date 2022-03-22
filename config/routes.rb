@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/deposit', to: 'deposits#new'
+  post '/depositMoney', to:'deposits#create'
   get 'sessions/new'
   get 'users/new'
   get 'users/show'
@@ -9,12 +11,15 @@ Rails.application.routes.draw do
   get '/search', to: 'static#home'
 
   resources :users
+  resources :deposits
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
 
   get 			'/login', 		to: 'sessions#new'
   post 		'/login', 		to: 'sessions#create'
   delete 		'/logout', 		to: 'sessions#destroy'
+
+
 
 
   root 'static#home'
