@@ -26,10 +26,9 @@ class WithdrawsController < ApplicationController
   end
 
   def index
-    date = ""
-    if params.has_key?(:date)
-      date = params[:date]
-    end
+    @date = {'Date': '500', '1 Month': '1', '6 Months': '6', '12 Months': '12', 'All Time': '200'}
+    date = params.has_key?(:date) ? params[:date] : 500
+    @numeric = {'Amount': 'all', 'Less Than': '<', 'Greater Than': '>', 'Equal': '='}
     @withdraws = Withdraw.findAll(current_user.id, date)
   end
 

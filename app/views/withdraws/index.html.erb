@@ -4,9 +4,27 @@
 <ul class="users">
 
   <% @withdraws.each do |withdraw| %>
-    <li><%=withdraw["amount"]%> </li>
+    <li><%=withdraw["amount"] * -1%> </li>
   <% end %>
 </ul>
 
+<%= form_with(url: 'index', method: :get, local: true) do |form| %>
+    <div class="mx-auto">
 
-<%= render 'deposits/radio_form'%>
+    </div>
+    <div class="d-flex flex-row bd-highlight">
+        <div class="p-2 bd-highlight align-self-center"><%= form.label :order, 'Order By Date', class: 'form-label'%> </div>
+        <div class="p-2 bd-highlight align-self-center"> <%= form.select :date, @date%></div>
+    </div>
+
+    <br>
+      <div class="d-flex flex-row bd-highlight">
+        <div class="p-2 bd-highlight align-self-center"><%= form.label :order2, 'Order By Amount'%> </div>
+        <div class="p-2 bd-highlight align-self-center"><%= form.select :size, @numeric%> </div>
+        <div class="p-2 bd-highlight align-self-center"><%= form.number_field  :amount, step: 0.01, class: 'form-control'  %></div>
+      </div>
+
+
+    <br>
+    <%= form.submit "Sort", class: 'btn btn-primary btn-lg mx-3' %>
+<% end%>

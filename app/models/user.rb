@@ -17,7 +17,7 @@ class User < ApplicationRecord
     withdraw_query = Withdraw.where('user_id = ?', user_id)
 
 
-    sql = "#{deposit_query.to_sql} UNION #{withdraw_query.to_sql}"
+    sql = "#{deposit_query.to_sql} UNION #{withdraw_query.to_sql} ORDER BY created_at DESC"
     ActiveRecord::Base.connection.execute(sql)
     # User.left_outer_joins(:deposits, :withdraws).where('deposits.user_id = ?', user_id).select('deposits.amount as da', 'withdraws.amount as wa')
   end
