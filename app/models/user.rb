@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates   :password, length:  {minimum:  8}
 
   def self.getBalance(user_id)
-    Deposit.where("user_id = ?", user_id).sum('amount') - Withdraw.where("user_id = ?", user_id).sum('amount')
+    Deposit.where("user_id = ?", user_id).sum('amount') + Withdraw.where("user_id = ?", user_id).sum('amount')
   end
 
   def self.getTransactions(user_id)
