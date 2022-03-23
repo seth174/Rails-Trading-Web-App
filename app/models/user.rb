@@ -11,4 +11,14 @@ class User < ApplicationRecord
   def self.getBalance(user_id)
     Deposit.where("user_id = ?", user_id).sum('amount') - Withdraw.where("user_id = ?", user_id).sum('amount')
   end
+
+  def self.getTransactions(user_id)
+    deposit_query = Deposit.where('user_id = ?', user_id)
+    withdraw_query = Withdraw.where('user_id = ?', user_id)
+
+
+    sql = "#{deposit_query.to_sql} UNION #{withdraw_query.to_sql}"
+    ActiveRecord::Base.connection.execute(sql)
+    # User.left_outer_joins(:deposits, :withdraws).where('deposits.user_id = ?', user_id).select('deposits.amount as da', 'withdraws.amount as wa')
+  end
 end

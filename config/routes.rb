@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'transactions/index'
+  get 'deposits/index'
+  get 'withdraws/index'
   get '/withdraw', to: 'withdraws#new'
   get '/deposit', to: 'deposits#new'
   post '/depositMoney', to:'deposits#create'
@@ -21,6 +24,8 @@ Rails.application.routes.draw do
   get 			'/login', 		to: 'sessions#new'
   post 		'/login', 		to: 'sessions#create'
   delete 		'/logout', 		to: 'sessions#destroy'
+
+  # get '/search', to: 'deposits#index'
 
 
 

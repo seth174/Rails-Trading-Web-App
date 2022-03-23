@@ -1,0 +1,9 @@
+<%= form_with url: yield(:url), method: :get do |form| %>
+  <%= form.radio_button :date, "6", class: 'form-check-input mx-1' %>
+  <%= form.label :date, "6 months", class: 'form-check-label mx-1' %>
+  <%= form.radio_button :date, "12", class: 'form-check-input mx-1' %>
+  <%= form.label :date, "12 Months", class: 'form-check-label mx-1' %>
+  <%= form.radio_button :date, "", class: 'form-check-input mx-1' %>
+  <%= form.label :date, "All", class: 'form-check-label mx-1' %>
+  <%= form.submit "Search", class: 'btn btn-primary mx-1'%>
+<% end %>

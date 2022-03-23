@@ -1,0 +1,12 @@
+<% provide(:title, 'Withdraws') %>
+<% provide(:url, 'index')%>
+<h1>All Withdraws</h1>
+<ul class="users">
+
+  <% @withdraws.each do |withdraw| %>
+    <li><%=withdraw["amount"]%> </li>
+  <% end %>
+</ul>
+
+
+<%= render 'deposits/radio_form'%>

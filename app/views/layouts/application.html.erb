@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header'%>
+    <% if logged_in?%>
+      <%= render 'layouts/header_login'%>
+    <% else %>
+      <%= render 'layouts/header'%>
+    <% end %>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>

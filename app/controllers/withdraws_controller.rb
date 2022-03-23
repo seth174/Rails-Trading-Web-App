@@ -12,6 +12,8 @@ class WithdrawsController < ApplicationController
       return
     end
 
+    @withdraw.amount *= -1 #Saving the withdraw as a negative balance to identify later in the transactions index view
+
     if @withdraw.save()
       flash[:success] = "successfully withdrew #{@withdraw.amount} in your account"
       redirect_to current_user
@@ -21,6 +23,14 @@ class WithdrawsController < ApplicationController
       end
       redirect_to '/withdraw'
     end
+  end
+
+  def index
+    date = ""
+    if params.has_key?(:date)
+      date = params[:date]
+    end
+    @withdraws = Withdraw.findAll(current_user.id, date)
   end
 
   private

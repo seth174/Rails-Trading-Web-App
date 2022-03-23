@@ -1,0 +1,12 @@
+<% provide(:title, 'Deposits') %>
+<% provide(:url, 'index')%>
+<h1>All users</h1>
+<ul class="users">
+
+  <% @deposits.each do |deposit| %>
+    <li><%=deposit["amount"]%> </li>
+  <% end %>
+</ul>
+
+
+<%= render 'deposits/radio_form'%>

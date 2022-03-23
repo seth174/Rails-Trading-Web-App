@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <%= link_to 'About Seth', static_about_seth_path, class: 'nav-link' %>
+      </li>
+      <li><%= link_to "Overview", current_user, class: 'nav-link' %></li>
+      <li><%= link_to "Edit Account", edit_user_path(current_user), class: 'nav-link' %></li>
+      <li><%= link_to "All Users", users_path, class: 'nav-link' %></li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <%= link_to "Seth's Trading", root_path, class: "navbar-brand mx-2" %>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item dropdown">
+        <%= link_to "Account Overview", current_user, class: 'nav-link'%>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Deposit/Withdraw
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "New Deposit", "/deposit", class: 'dropdown-item'%>
+          <%= link_to "New Withdraw", "/withdraw", class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Deposit History", deposits_index_path, class: 'dropdown-item'%>
+          <%= link_to "Withdraw History", withdraws_index_path, class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Transaction History", transactions_index_path, class: 'dropdown-item'%>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Disabled</a>
+      </li>
+    </ul>
+    <%= form_with url: "/search", method: :get do |form| %>
+      <div class="d-flex flex-row bd-highlight">
+        <div class="p-2 bd-highlight align-self-center"><%= form.label :query, "Search Stock:" %></div>
+        <div class="p-2 bd-highlight align-self-center"><%= form.text_field :query, class: 'form-control'%></div>
+        <div class="p-2 bd-highlight align-self-center"><%= form.submit "Search", class: 'btn btn-warning btn' %></div>
+      </div>
+    <% end %>
+  </div>
+</nav>
