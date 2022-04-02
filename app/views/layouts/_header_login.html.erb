@@ -40,10 +40,10 @@
         </div>
       </li>
     </ul>
-    <%= form_with url: "/search", method: :get do |form| %>
+    <%= form_with url: "/stocks", method: :get do |form| %>
       <div class="d-flex flex-row bd-highlight">
-        <div class="p-2 bd-highlight align-self-center"><%= form.label :query, "Search Stock:" %></div>
-        <div class="p-2 bd-highlight align-self-center"><%= form.text_field :query, class: 'form-control'%></div>
+        <div class="p-2 bd-highlight align-self-center"><%= form.label :ticker, "Search Stock:" %></div>
+        <div class="p-2 bd-highlight align-self-center"><%= form.text_field :ticker, class: 'form-control'%></div>
         <div class="p-2 bd-highlight align-self-center"><%= form.submit "Search", class: 'btn btn-warning btn' %></div>
       </div>
     <% end %>

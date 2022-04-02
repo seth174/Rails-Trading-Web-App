@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/stocks', to: 'stocks#show'
   get 'transactions/index'
   get 'deposits/index'
   get 'withdraws/index'

@@ -1,0 +1,7 @@
+
+<br>
+<br>
+<%@history[:c].each do |h|%>
+  <h1><%=h%></h1>
+<%end%>
+<%= line_chart User.group_by_day(:created_at).count %>

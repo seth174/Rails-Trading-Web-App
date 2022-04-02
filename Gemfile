@@ -5,6 +5,12 @@ ruby "3.0.0"
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
+gem 'finnhub_ruby', '~> 1.1', '>= 1.1.14'
+
+gem "chartkick"
+
+gem "groupdate"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
 
