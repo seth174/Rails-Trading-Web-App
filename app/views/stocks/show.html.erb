@@ -1,7 +1,28 @@
+<h1>Stocks#show</h1>
+<p>Find me in app/views/stocks/show.html.erb</p>
 
-<br>
-<br>
-<%@history[:c].each do |h|%>
-  <h1><%=h%></h1>
-<%end%>
-<%= line_chart User.group_by_day(:created_at).count %>
+<h1>Close: <%=@info[:c] %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <div class="d-flex align-items-center">
+        <%= link_to '1 day', stocks_path(:ticker => @ticker, :days => '1'), class: 'btn btn-primary mx-1'%>
+        <%= link_to '3 days', stocks_path(:ticker => @ticker, :days => '3'), class: 'btn btn-primary mx-1'%>
+        <%= link_to '1 week', stocks_path(:ticker => @ticker, :days => '7'), class: 'btn btn-primary mx-1'%>
+        <%= link_to '1 month', stocks_path(:ticker => @ticker, :days => '30'), class: 'btn btn-primary mx-1'%>
+        <%= link_to '3 months', stocks_path(:ticker => @ticker, :days => '90'), class: 'btn btn-primary mx-1'%>
+        <%= link_to '6 month', stocks_path(:ticker => @ticker, :days => '180'), class: 'btn btn-primary mx-1'%>
+        <%= link_to '1 year', stocks_path(:ticker => @ticker, :days => '365'), class: 'btn btn-primary mx-1'%>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    <%if @days.to_i <= 7%>
+    <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, points: false, curve: false, discrete: true) %>
+    <%else%>
+    <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, points: false, curve: false) %>
+    <%end%>
+  </div>
+</div>
