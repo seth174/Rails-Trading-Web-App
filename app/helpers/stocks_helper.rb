@@ -1,5 +1,6 @@
 module StocksHelper
   require 'finnhub_ruby'
+  require 'date'
 
   SECONDS_IN_DAYS = 86400
 
@@ -21,7 +22,11 @@ module StocksHelper
       interval = 'D'
     end
     days = days.to_i()
-    today = Date.today.to_time().to_i()
+    today = Date.today
+    while(today.on_weekend?())
+     today = today.prev_day()
+    end
+    today = today.to_time().to_i()
     start_day = today - days * SECONDS_IN_DAYS
 
     get_new_graph_max_min(ticker, interval, start_day, today)

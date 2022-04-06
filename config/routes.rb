@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'download_pdf', to: 'static#download_pdf'
   get '/stocks', to: 'stocks#show'
   get 'transactions/index'
   get 'deposits/index'

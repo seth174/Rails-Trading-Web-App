@@ -1,2 +1,142 @@
-<h1>Static#about_seth</h1>
-<p>Find me in app/views/static/about_seth.html.erb</p>
+<%=provide(:title, 'About Seth')%>
+<h1 class="display-3 text-center">About Seth</h1>
+<div class="container-lg my-2">
+  <div class="row">
+
+    <div class="align-items-center col-2 mx-2" id="sidebar">
+      <div class="list-group">
+        <a class="list-group-item list-group-item-action my-1" href="#overview">Overview</a>
+        <a class="list-group-item list-group-item-action my-1" href="#computer-experience">Computer Experience</a>
+        <a class="list-group-item list-group-item-action my-1" href="#depauw-university">DePauw University</a>
+        <a class="list-group-item list-group-item-action my-1" href="#swimming">Swimming</a>
+      </div>
+    </div>
+
+    <div class="col-8 mx-2">
+      <div data-bs-spy="scroll" data-bs-target="#sidebar" data-bs-offset="0" tabindex="0">
+        <div id="overview">
+          <h4 class="display-5">Overview</h4>
+          <div class="card flex-row">
+            <%=image_tag "GoodPictureOfSeth.jpg", alt: "Picture of seth", height: "400px", width: "300px", class: "card-image p-2" %>
+            <div class="card-body">
+              <p class="card-title p-2 display-6">Seth</p>
+              <big><p class="card-text p-2">I am a senior computer science and hispanic studies major at DePauw University looking for a job as a software enginner. I have been a tutor for both Spanish and Computer Science. Other activities that I have been involved with on campus include swimming, greek life, and Data Science Club. Download my resume <%= link_to 'here', download_pdf_path %>.</p></big>
+            </div>
+          </div>
+      </div>
+
+      <div id="computer-experience">
+        <h4 class="display-5">Computer Experience</h4>
+        <div class="card">
+          <h4 class="card-title display-6">Work Experience</h4>
+        </div>
+      </div>
+
+
+      <div id="depauw-university">
+        <h4 class="display-6">DePauw University</h4>
+        <p>Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.
+
+Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.
+
+Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.</p>
+
+      </div>
+      <div id="swimming">
+        <h4 class="display-6">Swimming</h4>
+        <p >Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.
+
+Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.
+
+Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.
+
+Overview
+Things to know when using the popover plugin:
+
+Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
+Popovers require the tooltip plugin as a dependency.
+Popovers are opt-in for performance reasons, so you must initialize them yourself.
+Zero-length title and content values will never show a popover.
+Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
+Triggering popovers on hidden elements will not work.
+Popovers for .disabled or disabled elements must be triggered on a wrapper element.
+When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
+Popovers must be hidden before their corresponding elements have been removed from the DOM.
+Popovers can be triggered thanks to an element inside a shadow DOM.</p>
+      </div>
+    </div>
+
+  </div>
+</div>

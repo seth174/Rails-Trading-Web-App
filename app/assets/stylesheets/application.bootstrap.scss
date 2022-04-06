@@ -12,6 +12,13 @@ $theme-colors: (
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
+
+
+.list-group{
+    position: sticky;
+    top: 15px;
+}
+
 #home_image{
   margin-left: 1rem;
 }

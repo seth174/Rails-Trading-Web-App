@@ -20,7 +20,7 @@
 <div class="row">
   <div class="col-3">
     <%if @days.to_i <= 7%>
-    <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, points: false, curve: false, discrete: true) %>
+    <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, stepSize: 1, points: false, curve: false, discrete: true) %>
     <%else%>
     <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, points: false, curve: false) %>
     <%end%>
