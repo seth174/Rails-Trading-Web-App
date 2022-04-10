@@ -1,8 +1,35 @@
-<h1>Stocks#show</h1>
-<p>Find me in app/views/stocks/show.html.erb</p>
-
-<h1>Close: <%=@info[:c] %></h1>
+<% provide(:title, 'Stock')%>
 <div class="container">
+  <div class="row justify-content-start">
+    <div class="col-1">
+      <%=image_tag @company_profile[:logo], alt: "Logo", height: "100px", width: "100px", class: 'rounded mt-5' %>
+    </div>
+    <div class="col">
+      <h1 class="display-3 mt-5"><%=@company_profile[:name]%></h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-start mt-4">
+    <div class="col">
+      <b><h1 class="display-6 text-info">Price: <%='%.2f' % @quote[:c]%></h1></b>
+    </div>
+    <div class="col">
+      <h1 class="display-6">High: <%='%.2f' % @quote[:h]%></h1>
+    </div>
+    <div class="col">
+      <h1 class="display-6">Low: <%= '%.2f' % @quote[:l]%></h1>
+    </div>
+    <div class="col">
+      <h1 class="display-6">Open: <%='%.2f' % @quote[:o]%></h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="btn-group m-5">
+      <%=link_to 'BUY', root_path, class: 'btn btn-success btn-lg m-2'%>
+      <%=link_to 'SELL', root_path, class: 'btn btn-danger btn-lg m-2'%>
+    </div>
+  </div>
   <div class="row">
     <div class="col-6">
       <div class="d-flex align-items-center">
@@ -16,13 +43,15 @@
       </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-3">
-    <%if @days.to_i <= 7%>
-    <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, stepSize: 1, points: false, curve: false, discrete: true) %>
-    <%else%>
-    <%=  line_chart(@new_graph, width: "800px", height: "500px", min: @min, max: @max, points: false, curve: false) %>
-    <%end%>
+
+  <div class="row">
+    <div class="col-6">
+      <%if @days.to_i <= 7%>
+      <%=  line_chart(@new_graph, width: "1000px", height: "500px", min: @min, max: @max, stepSize: 1, points: false, curve: false, discrete: true) %>
+      <%else%>
+      <%=  line_chart(@new_graph, width: "1000px", height: "500px", min: @min, max: @max, points: false, curve: false) %>
+      <%end%>
+    </div>
   </div>
+
 </div>
