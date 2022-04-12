@@ -1,0 +1,28 @@
+<div class="row justify-content-center">
+
+
+  <div class="col-6">
+
+
+    <%= form_with(url: '/buy', method:  :get) do |f|%>
+      <div class="mb-3">
+        <%=f.label :user, 'User: ', class: 'form-label display-6' %>
+        <%=f.label :email, current_user().email, class: 'form-label display-6' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :stock, class: 'form-label form-label-lg'%>
+        <% if @ticker%>
+          <%= f.text_field :stock, value: @ticker, class: 'form-control form-control-lg'%>
+        <% else %>
+          <%= f.text_field :stock, class: 'form-control form-control-lg'%>
+        <% end %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :quantity, class: 'form-label form-label-lg'%>
+        <%= f.number_field :quantity, class: 'form-control form-control-lg'%>
+      </div>
+      <%=link_to 'Cancel', current_user, class: 'btn btn-primary btn-lg' %>
+      <%= f.submit 'Buy', class: "btn btn-light btn-lg" %>
+    <% end%>
+  </div>
+</div>

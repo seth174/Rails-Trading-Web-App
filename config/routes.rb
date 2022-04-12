@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'stocks_purchased_per_people/new'
+  get 'stocks_purchased_per_people/index'
   get 'download_pdf', to: 'static#download_pdf'
   get '/stocks', to: 'stocks#show'
   get 'transactions/index'
@@ -8,6 +10,10 @@ Rails.application.routes.draw do
   get '/deposit', to: 'deposits#new'
   post '/depositMoney', to:'deposits#create'
   post 'withdrawMoney', to: 'withdraws#create'
+
+  get '/buy', to: 'stocks_purchased_per_people#create'
+
+  get 'stocks/index'
 
   get 'sessions/new'
   get 'users/new'

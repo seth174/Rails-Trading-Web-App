@@ -26,7 +26,7 @@
 
   <div class="row">
     <div class="btn-group m-5">
-      <%=link_to 'BUY', root_path, class: 'btn btn-success btn-lg m-2'%>
+      <%=link_to 'BUY', stocks_purchased_per_people_new_path(:ticker => @company_profile[:ticker]), class: 'btn btn-success btn-lg m-2'%>
       <%=link_to 'SELL', root_path, class: 'btn btn-danger btn-lg m-2'%>
     </div>
   </div>

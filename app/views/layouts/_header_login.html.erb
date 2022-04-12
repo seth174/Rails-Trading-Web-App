@@ -10,6 +10,7 @@
       <li><%= link_to "Overview", current_user, class: 'nav-link' %></li>
       <li><%= link_to "Edit Account", edit_user_path(current_user), class: 'nav-link' %></li>
       <li><%= link_to "All Users", users_path, class: 'nav-link' %></li>
+      <li><%= link_to "stocks", stocks_index_path, class: 'nav-link' %></li>
     </ul>
   </div>
 </nav>
@@ -39,6 +40,22 @@
           <%= link_to "Transaction History", transactions_index_path, class: 'dropdown-item'%>
         </div>
       </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Deposit/Withdraw
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Stocks Bought", stocks_purchased_per_people_index_path, class: 'dropdown-item'%>
+          <%= link_to "Buy Stock", stocks_purchased_per_people_new_path, class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Deposit History", deposits_index_path, class: 'dropdown-item'%>
+          <%= link_to "Withdraw History", withdraws_index_path, class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Transaction History", transactions_index_path, class: 'dropdown-item'%>
+        </div>
+      </li>
+
     </ul>
     <%= form_with url: "/stocks", method: :get do |form| %>
       <div class="d-flex flex-row bd-highlight">
