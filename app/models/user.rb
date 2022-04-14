@@ -9,8 +9,12 @@ class User < ApplicationRecord
   has_secure_password()
   validates   :password, length:  {minimum:  8}
 
-  def self.getBalance(user_id)
-    Deposit.where("user_id = ?", user_id).sum('amount') + Withdraw.where("user_id = ?", user_id).sum('amount')
+  def self.get_balance(user_id)
+    Deposit.where("user_id = ?", user_id).sum('amount') + Withdraw.where("user_id = ?", user_id).sum('amount') - StocksPurchasedPerPerson.get_balance(user_id) +  StocksPurchasedPerPerson.get_money_spent(user_id)
+  end
+
+  def self.get_cash_available(user_id)
+    Deposit.where("user_id = ?", user_id).sum('amount') + Withdraw.where("user_id = ?", user_id).sum('amount') - StocksPurchasedPerPerson.get_balance(user_id)
   end
 
   def self.getTransactions(user_id)

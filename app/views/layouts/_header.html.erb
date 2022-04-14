@@ -44,7 +44,7 @@
       <li>
       <%= form_with url: "/stocks", method: :get do |form| %>
         <div class="d-flex flex-row bd-highlight">
-          <div class="p-2 bd-highlight align-self-center"><%= form.label :ticker, "Search Stock:" %></div>
+          <div class="p-2 bd-highlight align-self-center"><%= form.label :ticker, "Search Stock Ticker:", class: 'col-form-label col-form-label-lg' %></div>
           <div class="p-2 bd-highlight align-self-center"><%= form.text_field :ticker, class: 'form-control-lg'%></div>
           <div class="p-2 bd-highlight align-self-center"><%= form.submit "Search", class: 'btn btn-warning btn-lg' %></div>
         </div>

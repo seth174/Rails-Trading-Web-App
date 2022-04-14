@@ -1,6 +1,7 @@
 class StocksPurchasedPerPeopleController < ApplicationController
 
   before_action :check_model, only: [:create]
+  before_action :check_balance, only: [:create]
 
   def new
     if params.has_key?(:ticker)
@@ -41,6 +42,14 @@ class StocksPurchasedPerPeopleController < ApplicationController
   def check_model()
     if !Stock.find(params[:stock].upcase()).present?()
       flash[:danger] = 'Stock does not exist or you have not visited the stocks page yet'
+      redirect_to current_user
+      return
+    end
+  end
+
+  def check_balance()
+    if User.get_cash_available(current_user) - get_quote(params[:stock])[:c] < 0
+      flash[:danger] = 'Inssuficient Funds'
       redirect_to current_user
       return
     end
