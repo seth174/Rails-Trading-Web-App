@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :deposits
   has_many :withdraws
   has_many :stocks_purchased_per_people
+  has_many :stocks_sold_per_people
 
   validates    :name,  presence:   true,   length: {maximum:  50}
   VALIDE_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -25,5 +26,9 @@ class User < ApplicationRecord
     sql = "#{deposit_query.to_sql} UNION #{withdraw_query.to_sql} ORDER BY created_at DESC"
     ActiveRecord::Base.connection.execute(sql)
     # User.left_outer_joins(:deposits, :withdraws).where('deposits.user_id = ?', user_id).select('deposits.amount as da', 'withdraws.amount as wa')
+  end
+
+  def self.get_stock_overview_information(user_id)
+
   end
 end

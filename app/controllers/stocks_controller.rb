@@ -18,7 +18,6 @@ class StocksController < ApplicationController
     @new_graph = graph_max_min[0]
     @max = (graph_max_min[1] + graph_max_min[1] * TEN_PERCENT).round()
     @min = (graph_max_min[2] - graph_max_min[2] * TEN_PERCENT).round()
-    @quote = get_quote(@ticker)
     @company_profile = get_company_profile(@ticker)
   end
 

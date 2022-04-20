@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
       @user = User.find(params[:id])
-      @money = User.get_balance(@user.id)
+      @position_balance = User.get_balance(@user.id)
       @cash = User.get_cash_available(@user.id)
   end
 

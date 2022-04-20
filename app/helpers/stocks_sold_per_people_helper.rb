@@ -1,0 +1,2 @@
+module StocksSoldPerPeopleHelper
+end

@@ -28,6 +28,14 @@ class StocksPurchasedPerPerson < ApplicationRecord
     sum_stocks(results)
   end
 
+  def self.get_stock(ticker, user_id)
+    StocksPurchasedPerPerson.joins(:stocks).where('"user_id" = ? and "stocks"."ticker" = ?', user_id, ticker)
+  end
+
+  def self.get_stock_count(ticker, user_id)
+    get_stock(ticker, user_id).count()
+  end
+
   private
   def self.sum_stocks(results)
     sum = 0
