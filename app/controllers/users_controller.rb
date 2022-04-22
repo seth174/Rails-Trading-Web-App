@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @position_balance = User.get_balance(@user.id)
       @cash = User.get_cash_available(@user.id)
+      @test = StocksPurchasedPerPerson.get_positions_value(@user.id)
   end
 
   def create

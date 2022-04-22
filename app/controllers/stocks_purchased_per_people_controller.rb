@@ -42,7 +42,7 @@ class StocksPurchasedPerPeopleController < ApplicationController
   end
 
   def check_balance()
-    if User.get_cash_available(current_user) - Stock.get_price(params[:stock]) < 0
+    if User.get_cash_available(current_user) - Stock.get_price(params[:stock] * params[:quantity].to_i) < 0
       flash[:danger] = 'Inssuficient Funds'
       redirect_to current_user
       return

@@ -19,7 +19,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :quantity, class: 'form-label form-label-lg'%>
-        <%= f.number_field :quantity, class: 'form-control form-control-lg'%>
+        <%= f.number_field :quantity, min: 1, class: 'form-control form-control-lg'%>
       </div>
       <%=link_to 'Cancel', current_user, class: 'btn btn-primary btn-lg' %>
       <%= f.submit yield(:type), class: "btn btn-#{yield(:color)} btn-lg" %>
