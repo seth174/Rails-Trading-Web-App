@@ -28,7 +28,12 @@ module StocksHelper
   end
 
   def get_quote(ticker)
-    finnhub_client().quote(ticker).to_hash()
+    if Stock.get_last_update(ticker) < Time.zone.now.ago(1000)
+      new_price = get_new_quote(ticker)[:c]
+      Stock.update_price(ticker, new_price)
+      return new_price
+    end
+    Stock.get_most_recent_price(ticker)
   end
 
   def get_new_quote(ticker)

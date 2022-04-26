@@ -20,4 +20,16 @@ class Stock < ApplicationRecord
       ApplicationController.helpers.get_quote(ticker)
     end
 
+    def self.get_last_update(ticker)
+      Stock.select('updated_at').find_by(ticker: ticker)[:updated_at]
+    end
+
+    def self.get_most_recent_price(ticker)
+      Stock.find_by(ticker: ticker)[:most_recent_price]
+    end
+
+    def self.update_price(ticker, new_price)
+      Stock.find_by(ticker: ticker).update(most_recent_price: new_price)
+    end
+
 end

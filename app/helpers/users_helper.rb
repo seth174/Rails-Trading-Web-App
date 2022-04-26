@@ -26,7 +26,7 @@ module UsersHelper
         quantity -= stocks_sold
         price -= StocksPurchasedPerPerson.get_stock_balance(user_id, info[:ticker], stocks_sold)
       end
-      current_price = Stock.get_price(info[:ticker])
+      current_price = Stock.get_quote(info[:ticker])
       info[:price_per_share] =  price / quantity
       info[:price] = current_price * quantity
       info[:quantity] = quantity

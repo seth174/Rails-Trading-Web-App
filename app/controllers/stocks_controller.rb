@@ -6,7 +6,7 @@ class StocksController < ApplicationController
 
   def show()
     @ticker = params[:ticker].upcase()
-    @quote = get_quote(@ticker)
+    @quote = get_new_quote(@ticker)
 
     if @quote[:c] == 0
      flash[:warning] = 'No such stock exist'
@@ -22,7 +22,7 @@ class StocksController < ApplicationController
   end
 
   def create()
-    @stock = Stock.new(ticker: params[:ticker].upcase(), name: get_company_profile(params[:ticker])[:name], most_recent_price: get_new_quote(params[:ticker]))
+    @stock = Stock.new(ticker: params[:ticker].upcase(), name: get_company_profile(params[:ticker])[:name], most_recent_price: get_new_quote(params[:ticker].upcase())[:c])
     if @stock.save
        flash[:success] = 'Stock Created Successfully'
     else

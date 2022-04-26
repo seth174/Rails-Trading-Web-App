@@ -73,7 +73,8 @@ class StocksPurchasedPerPerson < ApplicationRecord
       if purchased_amount - sold_amount == 0
         next
       end
-      sum += ApplicationController.helpers.get_quote(r["ticker"])[:c] * (purchased_amount - sold_amount)
+      price = ApplicationController.helpers.get_quote(r["ticker"])
+      sum += price * (purchased_amount - sold_amount)
     end
     sum
   end
