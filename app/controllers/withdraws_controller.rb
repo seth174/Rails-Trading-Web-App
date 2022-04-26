@@ -42,7 +42,7 @@ class WithdrawsController < ApplicationController
   end
 
   def isPositiveBalance()
-    newBalance = User.getBalance(@withdraw.user_id) - @withdraw.amount
+    newBalance = User.get_cash_available(@withdraw.user_id) - @withdraw.amount
     if newBalance < 0
       flash[:danger] = "Insufficient funds. Will result in a balance of #{newBalance}"
       return false
