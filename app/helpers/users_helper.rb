@@ -8,7 +8,7 @@ module UsersHelper
     price = 0
     quantity = 0
     different_amounts = 0
-    while i < purchased.length()
+    while i < purchased.count()
       info[:ticker] = purchased[i]['ticker']
       stocks_sold = StocksSoldPerPerson.count_stocks_sold(info[:ticker], user_id)
       if StocksPurchasedPerPerson.count_stocks_purchased(info[:ticker], user_id) - stocks_sold == 0
