@@ -17,7 +17,7 @@ module UsersHelper
       end
       price += purchased[i]['price'] * purchased[i]['quantity']
       quantity += purchased[i]['quantity']
-      while i + 1 < purchased.length() and purchased[i]['ticker'] == purchased[i + 1]['ticker']
+      while i + 1 < purchased.count() and purchased[i]['ticker'] == purchased[i + 1]['ticker']
         price += purchased[i + 1]['price'] * purchased[i + 1]['quantity']
         quantity += purchased[i + 1]['quantity']
         i += 1

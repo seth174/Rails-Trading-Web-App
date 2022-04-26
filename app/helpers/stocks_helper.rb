@@ -50,7 +50,7 @@ module StocksHelper
       max = -1
       min = 1_000_000_000
 
-      while i < history[:c].length()
+      while i < history[:c].count()
         max =  history[:c][i] > max ? history[:c][i] : max
         min = history[:c][i] < min ? history[:c][i] : min
         time = Time.at(history[:t][i]).to_datetime()
