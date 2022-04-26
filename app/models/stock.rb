@@ -13,7 +13,7 @@ class Stock < ApplicationRecord
     end
 
     def self.get_price(ticker)
-      get_quote(ticker)[:c]
+      get_quote(ticker)
     end
 
     def self.get_quote(ticker)
