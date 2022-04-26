@@ -31,6 +31,10 @@ module StocksHelper
     finnhub_client().quote(ticker).to_hash()
   end
 
+  def get_new_quote(ticker)
+    finnhub_client().quote(ticker).to_hash()
+  end
+
   private
     def finnhub_client()
       unless @finnhub_client

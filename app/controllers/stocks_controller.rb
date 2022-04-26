@@ -22,7 +22,7 @@ class StocksController < ApplicationController
   end
 
   def create()
-    @stock = Stock.new(ticker: params[:ticker].upcase(), name: get_company_profile(params[:ticker])[:name])
+    @stock = Stock.new(ticker: params[:ticker].upcase(), name: get_company_profile(params[:ticker])[:name], most_recent_price: get_new_quote(params[:ticker]))
     if @stock.save
        flash[:success] = 'Stock Created Successfully'
     else
