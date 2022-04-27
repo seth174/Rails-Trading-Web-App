@@ -16,6 +16,8 @@
       <tr>
         <th scope="col">Ticker</th>
         <th scope="col">Current Price</th>
+        <th scope="col">Daily Gain</th>
+        <th scope="col">Daily Percent Change</th>
         <th scope="col">Quantity</th>
         <th scope="col">Buying Price</th>
         <th scope="col">Total Amount</th>
@@ -28,6 +30,13 @@
         <tr>
           <th><%=s[:ticker]%></th>
           <td><%=s[:current_price]%></td>
+          <% if s[:daily_net_gain] < 0%>
+            <td class="text-danger"><%=s[:daily_net_gain]%></td>
+            <td class="text-danger"><%=s[:daily_percent_change]%>%</td>
+          <% else%>
+            <td class="text-success"><%=s[:daily_net_gain]%></td>
+            <td class="text-success"><%=s[:daily_percent_change]%>%</td>
+          <% end%>
           <td><%=s[:quantity]%></td>
           <td><%=s[:price_per_share]%></td>
           <td><%=s[:price]%></td>

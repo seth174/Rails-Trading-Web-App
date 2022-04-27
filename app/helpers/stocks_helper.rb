@@ -24,7 +24,7 @@ module StocksHelper
   end
 
   def get_company_profile(ticker)
-    finnhub_client().company_profile2({symbol: ticker}).to_hash
+    finnhub_client().company_profile2({symbol: ticker.upcase()}).to_hash
   end
 
   def get_quote(ticker)

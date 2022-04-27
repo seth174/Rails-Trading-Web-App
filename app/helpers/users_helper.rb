@@ -26,13 +26,16 @@ module UsersHelper
         quantity -= stocks_sold
         price -= StocksPurchasedPerPerson.get_stock_balance(user_id, info[:ticker], stocks_sold)
       end
-      current_price = Stock.get_quote(info[:ticker])
+      new_quote = get_new_quote(info[:ticker])
+      current_price = new_quote[:c]
       info[:price_per_share] =  price / quantity
       info[:price] = current_price * quantity
       info[:quantity] = quantity
       info[:current_price] = current_price
       info[:percent_change] = (current_price - (price/ quantity)) / (price / quantity) * 100
       info[:net_gain] = current_price * quantity - price
+      info[:daily_percent_change] = new_quote[:dp]
+      info[:daily_net_gain] = new_quote[:d]
       @stocks.append(info)
       i += 1
       price = 0
