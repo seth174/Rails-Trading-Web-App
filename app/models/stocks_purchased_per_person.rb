@@ -16,7 +16,7 @@ class StocksPurchasedPerPerson < ApplicationRecord
   end
 
   def self.get_stock_balance(user_id, ticker, quantity)
-    results = Stock.joins(:stocks_purchased_per_people).where('user_id = ? and stocks.ticker = ?', user_id, ticker).order(:date_created).pluck(:buying_price, :quantity)
+    results = Stock.joins(:stocks_purchased_per_people).where('user_id = ? and stocks.ticker = ?', user_id, ticker).order(:created_at).pluck(:buying_price, :quantity)
     sum = 0
     quantity_per_price = 0
     results.each() do |r|
