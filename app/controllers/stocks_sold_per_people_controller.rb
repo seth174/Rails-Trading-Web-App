@@ -1,6 +1,6 @@
 class StocksSoldPerPeopleController < ApplicationController
   before_action :check_model, only: [:create]
-  before_action :check_model, only: [:create]
+  before_action :check_quantity, only: [:create]
 
   def new()
     if params.has_key?(:ticker)
@@ -41,8 +41,9 @@ class StocksSoldPerPeopleController < ApplicationController
   end
 
   def check_quantity()
-    if
-      flash[:danger] = 'Stock does not exist or you have not visited the stocks page yet'
+    stocks_owned = Stock.get_stocks_owned(params[:stock].upcase(), current_user().id)
+    if stocks_owned - params[:quantity].to_i < 0
+      flash[:danger] = "You only own #{stocks_owned} and tried to sell #{params[:quantity]}"
       redirect_to current_user
       return
     end

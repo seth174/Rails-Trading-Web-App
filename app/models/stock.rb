@@ -9,7 +9,7 @@ class Stock < ApplicationRecord
     end
 
     def self.get_stocks_owned(ticker, user_id)
-      Stock.joins(:stocks_purchased_per_people).where('"stocks"."ticker" = "?" and "user_id" = "?"', ticker, user_id ).pluck(:quantity).sum()
+      Stock.joins(:stocks_purchased_per_people).where(' "user_id" = ? and "ticker" = ?', user_id, ticker ).pluck(:quantity).sum() - Stock.joins(:stocks_sold_per_people).where(' "user_id" = ? and "ticker" = ?', user_id, ticker ).pluck(:quantity).sum()
     end
 
     def self.get_price(ticker)
