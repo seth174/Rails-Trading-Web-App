@@ -8,14 +8,13 @@
         <a class="list-group-item list-group-item-action my-1" href="#overview">Overview</a>
         <a class="list-group-item list-group-item-action my-1" href="#computer-experience">Computer Experience</a>
         <a class="list-group-item list-group-item-action my-1" href="#depauw-university">DePauw University</a>
-        <a class="list-group-item list-group-item-action my-1" href="#swimming">Swimming</a>
       </div>
     </div>
 
     <div class="col-8 mx-2">
       <div data-bs-spy="scroll" data-bs-target="#sidebar" data-bs-offset="0" tabindex="0">
         <div id="overview">
-          <h4 class="display-5">Overview</h4>
+          <h4 class="display-4 my-5">Overview</h4>
           <div class="card flex-row">
             <%=image_tag "GoodPictureOfSeth.jpg", alt: "Picture of seth", height: "400px", width: "300px", class: "card-image p-2" %>
             <div class="card-body">
@@ -26,115 +25,210 @@
       </div>
 
       <div id="computer-experience">
-        <h4 class="display-5">Computer Experience</h4>
+        <h4 class="display-4 my-5">Computer Experience</h4>
+
+        <h4 class="display-5 text-center mt-5">Work Experience</h4>
+
+        <div class="card my-5">
+          <div class="card-header">Level Data</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "level_data.png", alt: "Level data", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Software Engineer Intern</h4>
+                <p class="card-text">I worked with a team of other interns and Software Engineers to implement integrations between applications. I used api's, servers, sftps, csv, back end code, and other resources to accomplish the task. I was able to effectively work by myself and with others when necessary to meet clients goals and expectations</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">April 2021 - August 2021</div>
+          </div>
+        </div>
+
+        <div class="card my-5">
+          <div class="card-header">Varsity Tutors</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "varsity_tutors.png", alt: "Varsity Tutors", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Contracted Computer Science Tutor</h4>
+                <p class="card-text">I worked with multiple students from different universities across the United States and Canada. I worked with students in intro classes, data structures, and web development. Students used the languages python, java, and javascript. I successfully created a tutor plan and helped my students pass their courses by having a great fundamental understanding of computer science.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">Dec 2021 - April 2022</div>
+          </div>
+        </div>
+
+        <div class="card my-5">
+          <div class="card-header">DePauw University</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "depauw_university.jpg", alt: "DePauw University", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">CS1 Computer Science Lab Tutor</h4>
+                <p class="card-text">I helped intro to computer science students understand material and work on projects in a lab setting. This position has been remote and in person. I use analogies and high level abstraction to help computer science students better understand computer science. The projects I help them work on include projects having to do with AI and projects with a simple GUI that makes them use their limited cs knowledge and apply it to a problem.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">Aug 2020 - Present</div>
+          </div>
+        </div>
+
+        <h4 class="display-5 text-center mt-5">Completed Classes</h4>
+
+        <div class="card my-5">
+              <div class="card-body">
+                <h4 class="card-title">Computer Science Classes and Related Classes</h4>
+                <p class="card-text">Mobile Development (Android), Theory of Computation, Web Programing and Cybersecurity, Database Systems, Object Oriented Programing, Graphics, Data Structures, Foundations of Computation, Computer Systems, Discrete Mathematics, Physics I, Calculus I, Intro Statistics.</p>
+              </div>
+        </div>
+
+        <h4 class="display-5 text-center mt-5">Projects</h4>
+
+        <div class="card my-5">
+          <div class="row g-0">
+            <div class="col">
+              <div class="card-body">
+                <h4 class="card-title">Web Application Trading App</h4>
+                <p class="card-text">This application is one of my many projects. This application uses Ruby On Rails as a web framework to develop the app. The application is a dynamic app that lets people look up stocks and get basic information about the stock. It uses the Finnhub API to pull financial data, chartkick gem to make graphs, and a postgress database to keep track of users and stocks. Without creating an account, users are allowed to lookup stocks and see basic financial information and learn more about the application. With an account, users can make deposits, withdraws, buy stock, and sell stock. The motivation for this app was to get more comfortable investing with large amounts of cash and see how much a portfolio can move around during long term investing.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">Ruby On Rails</div>
+          </div>
+        </div>
+
+        <div class="card my-5">
+          <div class="row g-0">
+            <div class="col">
+              <div class="card-body">
+                <h4 class="card-title">HelpSpot- Ticketing System</h4>
+                <p class="card-text"> This was my senior seminar project. I used a java backend to create a helpdesk/ticketing managment software. An organization has the ability to create users for their organization, create client organizations, and client users. One organization can have many clients. Then either the client or parent organization can create tickets for problems they are having with some service. The ticket is originially placed in the unassigned tickets queue and then it can be placed in different queues created by the organization. The project uses an Apache Derby JDBC object to connect with a remote database, JavaFx for the frontend, object oriented design principles, and inheritance to create a functioning desktop application. </p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">JavaFX Based Application</div>
+          </div>
+        </div>
+
         <div class="card">
-          <h4 class="card-title display-6">Work Experience</h4>
+          <div class="card-body">
+            <h4 class="card-title">
+              Other Projects
+            </h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">PyGame - Sudoku solver </li>
+              <li class="list-group-item">Java - Text-Based Euchre Game</li>
+              <li class="list-group-item">PyGame - 2048 Game</li>
+              <li class="list-group-item">C++ - Graphics Library</li>
+              <li class="list-group-item">Java - Text-Based Adventure Game</li>
+            </ul>
+            <div class="card-footer bg-transparent">
+            <%= link_to 'GitHub', "https://github.com/seth174?tab=repositories", class: 'btn btn-primary'%>
+            </div>
+          </div>
         </div>
       </div>
 
-
       <div id="depauw-university">
-        <h4 class="display-6">DePauw University</h4>
-        <p>Overview
-Things to know when using the popover plugin:
+        <h4 class="display-4 my-5">DePauw University</h4>
 
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.
+        <div class="card my-5">
+          <div class="row g-0">
+            <div class="col">
+              <div class="card-body">
+                <h4 class="card-title">Majors and Minor</h4>
+                <p class="card-text">I am a Hispanic Studies and Computer Science double major with a minor in Latin America and Carribean Studies. My GPA is a 3.89/4.00</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">August 2018 - May 2022</div>
+          </div>
+        </div>
 
-Overview
-Things to know when using the popover plugin:
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              Awards And Societies
+            </h4>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Deans List (3.5+/4.0 GPA) 8 Semesters</li>
+              <li class="list-group-item">Tiger Pride Honor Roll (3.4+/4.0 Student Athlete GPA) 4 Semesters</li>
+              <li class="list-group-item">Phi Kappa Beta Member</li>
+              <li class="list-group-item">Chi Alpha Sigma - DePauw Student Athlete Honor Society</li>
+              <li class="list-group-item">Computer Science Department Honor Society</li>
+            </ul>
+          </div>
+        </div>
 
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.
+        <h4 class="display-5 text-center my-5">Work Study</h4>
 
-Overview
-Things to know when using the popover plugin:
+        <div class="card my-5">
+          <div class="card-header">DePauw University</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "depauw_university.jpg", alt: "DePauw", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Spanish Tutor</h4>
+                <p class="card-text">I assisted students of all skill levels with their Spanish. I had a set day and time for office hours where I assisted individuals or groups prepare for upcoming tests, projects, or homework assignments so that they could do well in their Spanish class.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">August 2021 - Present</div>
+          </div>
+        </div>
 
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.</p>
+        <div class="card my-5">
+          <div class="card-header">DePauw University</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "depauw_university.jpg", alt: "DePauw", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Lifeguard</h4>
+                <p class="card-text">I helped maintain a safe aquatic atmospher for staff and faculty to enjoy the pool. I have an American Red Cross Certification in Lifeguarding and CPR.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">August 2018 - Present</div>
+          </div>
+        </div>
 
-      </div>
-      <div id="swimming">
-        <h4 class="display-6">Swimming</h4>
-        <p >Overview
-Things to know when using the popover plugin:
+        <h4 class="display-5 text-center my-5">Organizations</h4>
 
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.
+        <div class="card my-5">
+          <div class="card-header">DePauw University</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "depauw_university.jpg", alt: "DePauw", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Swim Team Captain and Member</h4>
+                <p class="card-text">I was a four year Division III NCAA athlete. In the pool I placed top 9 in our conference all four years and led the team in point scoring at the conference meet my senior year. Outside of the pool, I was inducted into the athletic honor society for my work in the classroom. For showing hard work and effor over three years, I was named Co-Captain of the swim team my senior year and led our team to an impressive fourth place finish at our conference meet. I shaped the minds and lifestyles of young athletes and put them on the right track to success. Swimming all four years was the hardest thing I did in college and I learned about leadership, hard work, commitment, and consistency.</p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">August 2018 - February 2022</div>
+          </div>
+        </div>
 
-Overview
-Things to know when using the popover plugin:
+        <div class="card my-5">
+          <div class="card-header">Delta Upsilon Fraternity</div>
+          <div class="row g-0">
+            <div class="col-md-3">
+              <%=image_tag "du_logo.png", alt: "DU", height: "200px", width: "200px", class: "img-fluid rounded-start" %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h4 class="card-title">Delta Upsilon Member</h4>
+                <p class="card-text">I was fortunate enough to join the Delta Upsilon fraternity where I had the oppurtunities to give back to the community, be a leader, and shape the lives of other young men. I assisted in our two big philanthropy events every year Rent a DU and DU haunted house where we raised money for the local Humane Society. Along with helping out the fraternity during philanthropy events, I held multiple positions in the house to help lead and build the house to be better place for everyone. </p>
+              </div>
+            </div>
+            <div class="card-footer bg-transparent">Spring 2018 - Present</div>
+          </div>
+        </div>
 
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.
-
-Overview
-Things to know when using the popover plugin:
-
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.
-
-Overview
-Things to know when using the popover plugin:
-
-Popovers rely on the 3rd party library Popper for positioning. You must include popper.min.js before bootstrap.js or use bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper in order for popovers to work!
-Popovers require the tooltip plugin as a dependency.
-Popovers are opt-in for performance reasons, so you must initialize them yourself.
-Zero-length title and content values will never show a popover.
-Specify container: 'body' to avoid rendering problems in more complex components (like our input groups, button groups, etc).
-Triggering popovers on hidden elements will not work.
-Popovers for .disabled or disabled elements must be triggered on a wrapper element.
-When triggered from anchors that wrap across multiple lines, popovers will be centered between the anchors' overall width. Use .text-nowrap on your <a>s to avoid this behavior.
-Popovers must be hidden before their corresponding elements have been removed from the DOM.
-Popovers can be triggered thanks to an element inside a shadow DOM.</p>
       </div>
     </div>
 

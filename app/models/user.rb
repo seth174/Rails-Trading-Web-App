@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :withdraws
   has_many :stocks_purchased_per_people
   has_many :stocks_sold_per_people
+  has_many :balances
 
   validates    :name,  presence:   true,   length: {maximum:  50}
   VALIDE_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

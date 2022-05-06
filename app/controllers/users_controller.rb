@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :create_account, only: [:new]
   before_action   :logged_in_user,  only:  [:edit, :update, :index, :destroy, :show]
   before_action   :correct_user,  only:  [:edit, :update, :show]
   before_action  :admin_user,  only:     :destroy
@@ -74,6 +75,13 @@ class UsersController < ApplicationController
 
   def admin_user
      redirect_to(root_url)  unless current_user.admin?
+  end
+
+  def create_account()
+    if logged_in?
+      flash[:danger] = 'You already have an account'
+      redirect_to current_user
+    end
   end
 
 end
