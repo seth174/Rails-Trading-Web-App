@@ -37,7 +37,12 @@ Rails.application.routes.draw do
   delete 		'/logout', 		to: 'sessions#destroy'
 
   # get '/search', to: 'deposits#index'
-
+  namespace 'api' do
+    namespace 'v1' do
+      resources :balances
+      resources :users
+    end
+  end
 
 
 
