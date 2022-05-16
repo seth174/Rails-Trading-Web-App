@@ -28,7 +28,9 @@ class StocksPurchasedPerPeopleController < ApplicationController
   end
 
   def index
-    @stocksPerPerson = StocksPurchasedPerPerson.find_by_user_id(current_user().id)
+    date = params.has_key?(:date) ? params[:date] : 5000
+    stock_name = params.has_key?(:name) ? params[:name] : " "
+    @stocksPurchasedPerPerson = StocksPurchasedPerPerson.find_by_user_id(current_user().id, date, stock_name)
   end
 
   private

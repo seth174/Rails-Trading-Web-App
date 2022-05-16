@@ -1,4 +1,7 @@
 class WithdrawsController < ApplicationController
+
+  before_action :correct_user, only: [:create]
+
   def new
     @withdraw = Withdraw.new
   end
@@ -7,7 +10,7 @@ class WithdrawsController < ApplicationController
 
     @withdraw = Withdraw.new(amount: params[:amount], user_id: current_user.id)
 
-    unless isPositiveBalance() and correct_user(params[:password])
+    if not isPositiveBalance()
       redirect_to '/withdraw'
       return
     end
@@ -28,18 +31,20 @@ class WithdrawsController < ApplicationController
   def index
     @date = {'Date': '500', '1 Month': '1', '6 Months': '6', '12 Months': '12', 'All Time': '200'}
     date = params.has_key?(:date) ? params[:date] : 500
+    amount = params.has_key?(:date) ? params[:date] : 500
     @numeric = {'Amount': 'all', 'Less Than': '<', 'Greater Than': '>', 'Equal': '='}
     @withdraws = Withdraw.findAll(current_user.id, date)
   end
 
   private
-  def correct_user(password)
-    unless current_user && current_user.authenticate(password)
+  def correct_user()
+    unless current_user && current_user.authenticate(params[:password])
       flash[:danger] = "Wrong password"
-      return false
+      redirect_to '/withdraw'
     end
-    return true;
   end
+
+
 
   def isPositiveBalance()
     newBalance = User.get_cash_available(@withdraw.user_id) - @withdraw.amount

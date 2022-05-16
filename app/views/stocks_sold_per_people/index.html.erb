@@ -1,4 +1,15 @@
-<%@stocksSoldPerPerson.each do |s|%>
- <h1><%= s.quantity%> @ <%= s.selling_price%></h1>
-  <h1><%= s.stock.name%></h1>
-<%end%>
+<div class="container">
+
+  <div class="row mt-5">
+
+    <div class="col-8 my-auto">
+      <h1 class= "display-5 text-center align-middle">Stocks Sold</h1>
+    </div>
+    <div class="col-4">
+      <%= render 'stocks_sold_per_people/stocks_sold_bought_search_filter'%>
+    </div>
+  </div>
+
+  <%= render 'stocks_sold_per_people/stocks_sold_or_bought_table', stocks:  @stocksSoldPerPerson%>
+  
+</div>

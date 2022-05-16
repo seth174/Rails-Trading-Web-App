@@ -1,0 +1,25 @@
+<div class="container-sm">
+  <div class="row">
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% withdrawsOrDeposits.each do |withdraw| %>
+
+      <tr>
+        <td><%=withdraw["created_at"].strftime("%B %d, %Y %A")%></td>
+        <td><%=withdraw["amount"]%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  </div>
+</div>

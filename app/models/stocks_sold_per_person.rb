@@ -2,8 +2,14 @@ class StocksSoldPerPerson < ApplicationRecord
   belongs_to :stock
   belongs_to :user
 
-  def self.find_by_user_id(user_id)
-    StocksSoldPerPerson.where('user_id = ?', user_id)
+  validates    :selling_price,  presence:   true
+  validates    :stock_id,  presence:   true
+  validates    :user_id,  presence:   true
+  validates    :quantity,  presence:   true, :numericality => { :greater_than => 0 }
+
+  def self.find_by_user_id(user_id, date, pattern)
+    compare_date = date == 5000 ? "2000-00-00" : DateTime.now().prev_month(date.to_i)
+    StocksSoldPerPerson.joins("INNER JOIN stocks on stock_id = stocks.id").where('user_id = ? AND stocks_sold_per_people.created_at > ? AND stocks.name like ?', user_id, compare_date, "%#{pattern}%").order(created_at: :desc)
   end
 
   def self.get_stocks_sold(user_id)

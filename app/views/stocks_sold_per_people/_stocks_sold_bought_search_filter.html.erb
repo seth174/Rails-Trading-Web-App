@@ -1,0 +1,20 @@
+<%= form_with url: "index", method: :get, local: true do |form| %>
+  <div class="card">
+    <div class="card-body">
+
+      <div class="mb-3">
+        <%= form.label :name, "Filter Records, enter date, Stock Name, or both:", {class: 'form-label'} %>
+        <%= form.text_field :name, {class: 'form-control', placeholder: 'Stock Name'} %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.select :date, options_for_select(get_dates()), {}, {class: "form-control"} %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.submit "Search", {class: 'btn btn-primary'} %>
+      </div>
+
+    </div>
+  </div>
+  <% end %>

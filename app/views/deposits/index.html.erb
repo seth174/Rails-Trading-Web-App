@@ -1,12 +1,10 @@
 <% provide(:title, 'Deposits') %>
 <% provide(:url, 'index')%>
-<h1>All users</h1>
-<ul class="users">
+<h1 class="display-4 text-center">Deposit History</h1>
 
-  <% @deposits.each do |deposit| %>
-    <li><%=deposit["amount"]%> </li>
-  <% end %>
-</ul>
+<%= render 'withdraws/deposit_or_withdraw_table', withdrawsOrDeposits: @deposits%>
 
 
-<%= render 'deposits/radio_form'%>
+<div class="container">
+  <%= render 'deposits/radio_form'%>
+</div>
