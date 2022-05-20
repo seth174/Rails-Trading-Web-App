@@ -14,7 +14,7 @@
     <% withdrawsOrDeposits.each do |withdraw| %>
 
       <tr>
-        <td><%=withdraw["created_at"].strftime("%B %d, %Y %A")%></td>
+        <td><%=withdraw["created_at"].to_date().strftime("%B %d, %Y %A")%></td>
         <td><%=withdraw["amount"]%></td>
       </tr>
     <% end %>
