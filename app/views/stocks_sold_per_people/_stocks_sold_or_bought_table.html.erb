@@ -16,7 +16,7 @@
     <% stocks.each do |s| %>
 
       <tr>
-        <td><%=s.created_at..to_date().strftime("%B %d, %Y %A")%></td>
+        <td><%=s.created_at.to_date().strftime("%B %d, %Y %A")%></td>
         <td scope="col"><%=s.stock.name%></td>
         <td scope="col"><%=s.quantity%></td>
         <% if defined?(s.buying_price)%>
