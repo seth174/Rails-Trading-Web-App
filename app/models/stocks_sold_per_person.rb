@@ -8,7 +8,7 @@ class StocksSoldPerPerson < ApplicationRecord
   validates    :quantity,  presence:   true, :numericality => { :greater_than => 0 }
 
   def self.find_by_user_id(user_id, date, pattern)
-    compare_date = date == 5000 ? DateTime.now().prev_year() : DateTime.now().prev_month(date.to_i)
+    compare_date = date == 5000 ? Time.zone.parse('2000-01-01 00:01') : DateTime.now().prev_month(date.to_i)
     StocksSoldPerPerson.joins("INNER JOIN stocks on stock_id = stocks.id").where('stocks_sold_per_people.created_at > ? AND user_id = ? AND stocks.name like ?', compare_date, user_id, "%#{pattern}%").order(created_at: :desc)
   end
 
