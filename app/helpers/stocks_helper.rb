@@ -44,7 +44,7 @@ module StocksHelper
     def finnhub_client()
       unless @finnhub_client
         FinnhubRuby.configure do |config|
-          config.api_key['api_key'] = 'c78g7iqad3icbce84at0'
+          config.api_key['api_key'] = Rails.application.credentials[Rails.env.to_sym][:finnhub][:api_key]
         end
         return @finnhub_client = FinnhubRuby::DefaultApi.new
       end

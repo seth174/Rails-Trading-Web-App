@@ -45,10 +45,10 @@
 
   <div class="row">
     <div class="col">
-      <%= form_with url: "/stocks", class: 'text-center', method: :get do |form| %>
+      <%= form_with url: "static/welcome_email", class: 'text-center', method: :get do |form| %>
         <div class="d-flex justify-content-center">
-          <div class="pe-2 bd-highlight align-self-center"><%= form.label :ticker, "Enter email to receive my email", class: 'form-text form-text-sm' %></div>
-          <div class="pe-2 bd-highlight align-self-center"><%= form.text_field :ticker, class: 'form-control form-control-sm', placeholder: 'Email'%></div>
+          <div class="pe-2 bd-highlight align-self-center"><%= form.label :email, "Enter email to receive my email", class: 'form-text form-text-sm' %></div>
+          <div class="pe-2 bd-highlight align-self-center"><%= form.text_field :email, class: 'form-control form-control-sm', placeholder: 'Email'%></div>
           <div class="bd-highlight align-self-center"><%= form.submit "submit", class: 'btn btn-primary btn-sm' %></div>
         </div>
       <% end %>
