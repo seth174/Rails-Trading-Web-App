@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 'static/welcome_email'
 
-  get '/email', to: 'static#send_email'
+  get '/email', to: 'static#welcome_email'
 
   get '/buy', to: 'stocks_purchased_per_people#create'
   get '/sell', to: 'stocks_sold_per_people#create'
