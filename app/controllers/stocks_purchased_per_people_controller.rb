@@ -13,7 +13,7 @@ class StocksPurchasedPerPeopleController < ApplicationController
   def create
     user = User.find_by(email: current_user().email)
     stock = Stock.find_by(ticker: params[:stock].upcase())
-    buying_price = Stock.get_price(stock.ticker)
+    buying_price = Finnhub::GetQuoteService.call(stock.ticker, false)[MOST_RECENT_PRICE]
     purchase = StocksPurchasedPerPerson.create(user_id: user.id, stock_id: stock.id, quantity: params[:quantity], buying_price: buying_price)
 
     if purchase.save()
@@ -44,7 +44,7 @@ class StocksPurchasedPerPeopleController < ApplicationController
   end
 
   def check_balance()
-    if User.get_cash_available(current_user) - Stock.get_price(params[:stock]) * params[:quantity].to_i < 0
+    if User.get_cash_available(current_user) - Finnhub::GetQuoteService.call(params[:stock], false)[MOST_RECENT_PRICE] * params[:quantity].to_i < 0
       flash[:danger] = 'Inssuficient Funds'
       redirect_to current_user
       return

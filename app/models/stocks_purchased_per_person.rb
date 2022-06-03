@@ -74,8 +74,8 @@ class StocksPurchasedPerPerson < ApplicationRecord
       if purchased_amount - sold_amount == 0
         next
       end
-      price = Finnhub::GetQuoteService.call(r["ticker"])
-      sum += price * (purchased_amount - sold_amount)
+      price = Finnhub::GetQuoteService.call(r["ticker"], false)
+      sum += price[MOST_RECENT_PRICE] * (purchased_amount - sold_amount)
     end
     sum
   end

@@ -1,0 +1,8 @@
+#Symbols needed for the calls to the FINNHUB API 
+MOST_RECENT_PRICE = :c
+DAY_CHANGE = :d
+DAY_PERCENT_CHANGE = :dp
+DAY_HIGH_PRICE = :h
+DAY_LOW_PRICE = :l
+DAY_OPEN_PRICE = :o
+DAY_PREVIOUS_CLOSE_PRICE = :pc

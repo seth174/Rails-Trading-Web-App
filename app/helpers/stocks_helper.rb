@@ -23,36 +23,10 @@ module StocksHelper
 
   end
 
-  def get_company_profile(ticker)
-    finnhub_client().company_profile2({symbol: ticker.upcase()}).to_hash
-  end
-
-  def get_quote(ticker)
-    if Stock.get_last_update(ticker) < Time.zone.now.ago(1000)
-      new_price = get_new_quote(ticker)[:c]
-      Stock.update_price(ticker, new_price)
-      return new_price
-    end
-    Stock.get_most_recent_price(ticker)
-  end
-
-  def get_new_quote(ticker)
-    finnhub_client().quote(ticker).to_hash()
-  end
-
   private
-    def finnhub_client()
-      unless @finnhub_client
-        FinnhubRuby.configure do |config|
-          config.api_key['api_key'] = Rails.application.credentials[Rails.env.to_sym][:finnhub][:api_key]
-        end
-        return @finnhub_client = FinnhubRuby::DefaultApi.new
-      end
-      @finnhub_client
-    end
 
     def get_new_graph_max_min(ticker, interval, start_day, today)
-      history = finnhub_client().stock_candles(ticker, interval, start_day, today).to_hash
+      history = Finnhub::GetStockCandlesService.call(ticker, interval, start_day, today).to_hash
 
       new_graph = {}
       i = 0

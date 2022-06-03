@@ -1,5 +1,5 @@
 module Finnhub
-  class GetCompanyProfile < ApplicationService
+  class GetCompanyProfileService < ApplicationService
 
     def initialize(ticker)
       @ticker = ticker.upcase()

@@ -6,9 +6,9 @@ class StocksController < ApplicationController
 
   def show()
     @ticker = params[:ticker].upcase()
-    @quote = get_new_quote(@ticker)
+    @quote = Finnhub::GetQuoteService.call(@ticker, false)
 
-    if @quote[:c] == 0
+    if @quote[MOST_RECENT_PRICE] == 0
      flash[:warning] = 'No such stock exist'
      redirect_to current_user
      return
@@ -18,11 +18,15 @@ class StocksController < ApplicationController
     @new_graph = graph_max_min[0]
     @max = (graph_max_min[1] + graph_max_min[1] * TEN_PERCENT).round()
     @min = (graph_max_min[2] - graph_max_min[2] * TEN_PERCENT).round()
-    @company_profile = get_company_profile(@ticker)
+    @company_profile = Finnhub::GetCompanyProfileService.call(@ticker)
   end
 
   def create()
-    @stock = Stock.new(ticker: params[:ticker].upcase(), name: get_company_profile(params[:ticker])[:name], most_recent_price: get_new_quote(params[:ticker].upcase())[:c])
+    new_quote = Finnhub::GetQuoteService.call(params[:ticker], true)
+    @stock = Stock.new(ticker: params[:ticker].upcase(), name: Finnhub::GetCompanyProfileService.call(params[:ticker])[:name],
+    most_recent_price: new_quote[MOST_RECENT_PRICE], day_change: new_quote[DAY_CHANGE], day_percent_change: new_quote[DAY_PERCENT_CHANGE],
+    day_high_price: new_quote[DAY_HIGH_PRICE], day_low_price: new_quote[DAY_LOW_PRICE], day_open_price: new_quote[DAY_OPEN_PRICE],
+    day_previous_close_price: new_quote[DAY_PREVIOUS_CLOSE_PRICE])
     if @stock.save
        flash[:success] = 'Stock Created Successfully'
     else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_28_050608) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_02_170638) do
   create_table "balances", force: :cascade do |t|
     t.float "amount"
     t.integer "user_id"
@@ -31,6 +31,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_28_050608) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "most_recent_price"
+    t.float "day_change"
+    t.float "day_percent_change"
+    t.float "day_high_price"
+    t.float "day_low_price"
+    t.float "day_open_price"
+    t.float "day_previous_close_price"
   end
 
   create_table "stocks_purchased_per_people", force: :cascade do |t|

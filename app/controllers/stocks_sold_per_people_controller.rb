@@ -18,7 +18,7 @@ class StocksSoldPerPeopleController < ApplicationController
   def create
     user = User.find_by(email: current_user().email)
     stock = Stock.find_by(ticker: params[:stock].upcase())
-    selling_price = Stock.get_price(stock.ticker)
+    selling_price = Finnhub::GetQuoteService.call(stock.ticker, false)[MOST_RECENT_PRICE]
     sale = StocksSoldPerPerson.create(user_id: user.id, stock_id: stock.id, quantity: params[:quantity], selling_price: selling_price)
 
     if sale.save()
