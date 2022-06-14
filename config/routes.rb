@@ -44,7 +44,10 @@ Rails.application.routes.draw do
   namespace 'api' do
     namespace 'v1' do
       resources :balances
-      resources :users
+      get 'stocks/show'
+      get 'users/get_stocks_owned_info'
+      get 'users/show'
+      
     end
   end
 
