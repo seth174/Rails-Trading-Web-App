@@ -47,7 +47,8 @@ Rails.application.routes.draw do
       get 'stocks/show'
       get 'users/get_stocks_owned_info'
       get 'users/show'
-      
+      get 'users/index'
+
     end
   end
 
