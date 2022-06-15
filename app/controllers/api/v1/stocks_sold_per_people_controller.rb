@@ -1,8 +1,8 @@
 module Api
   module V1
-    class StocksPurchasedPerPeopleController < ApplicationController
+    class StocksSoldPerPeopleController < ApplicationController
       def index
-        stock = StocksPurchasedPerPeople.get_stocks_purchased(params[:user_id])
+        stock = StocksSoldPerPerson.get_stocks_sold(params[:user_id])
         render json: {status: "SUCCESS", message: "Loaded balance", data:stock}, status: :ok
       end
     end

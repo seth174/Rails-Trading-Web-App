@@ -48,7 +48,8 @@ Rails.application.routes.draw do
       get 'users/get_stocks_owned_info'
       get 'users/show'
       get 'users/index'
-
+      get 'stocks_purchased_per_people/index'
+      get 'stocks_sold_per_people/index'
     end
   end
 
