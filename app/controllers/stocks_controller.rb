@@ -8,11 +8,6 @@ class StocksController < ApplicationController
     @ticker = params[:ticker].upcase()
     @quote = Finnhub::GetQuoteService.call(@ticker, false)
 
-    if @quote[MOST_RECENT_PRICE] == 0
-     flash[:warning] = 'No such stock exist'
-     redirect_to current_user
-     return
-    end
     @days = params.has_key?(:days) ? params[:days] : 30
     graph_max_min = get_stock_history(@ticker, @days)
     @new_graph = graph_max_min[0]

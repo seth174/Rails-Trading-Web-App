@@ -13,7 +13,11 @@ class Stock < ApplicationRecord
     end
 
     def self.get_last_update(ticker)
-      Stock.select('updated_at').find_by(ticker: ticker)[:updated_at]
+      stock = Stock.select('updated_at').find_by(ticker: ticker)
+      if stock
+        return stock[:updated_at]
+      end
+      nil
     end
 
     def self.get_most_recent_price(ticker)

@@ -1,6 +1,8 @@
 module Api
   module V1
     class UsersController < ApplicationController
+      before_action :check_user_id , only: [:get_balance]
+
       def index
         users = User.all()
         render json: {status: "SUCCESS", message: "Loaded users", data:users}, status: :ok
@@ -20,12 +22,23 @@ module Api
         if info
           render json: info, status: :ok
         else
-          render json: nil, status: :unauthorized
+          render json: {message: "something went wrong", status: :error}
         end
+      end
+
+      def get_balance
+        balance = User.get_balance(params[:user_id])
+        render json: balance, status: :ok
       end
 
 
       private
+
+      def check_user_id()
+        unless(User.exists?(params[:user_id]))
+          render json: {message: "something went wrong", status: :error}
+        end
+      end
 
       def balance_params()
         params.permit(:amount, :user_id)
