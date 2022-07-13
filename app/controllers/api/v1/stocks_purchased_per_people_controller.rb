@@ -26,7 +26,7 @@ module Api
         stock = Stock.find_by(ticker: params[:stock].upcase())
         buying_price = Finnhub::GetQuoteService.call(stock.ticker, false)[MOST_RECENT_PRICE]
         purchase = StocksPurchasedPerPerson.create(user_id: user.id, stock_id: stock.id, quantity: params[:quantity], buying_price: buying_price)
-        render json: {status: "SUCCESS", message: "Loaded balance", data:purchase}, status: :created
+        render json: buying_price, status: :created
       end
 
       private

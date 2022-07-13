@@ -37,7 +37,7 @@ class StocksController < ApplicationController
   private
 
   def create_model()
-    if(!stock_exist?())
+    unless(stock_exist?())
       create()
     end
   end

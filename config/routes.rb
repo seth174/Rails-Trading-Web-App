@@ -45,12 +45,14 @@ Rails.application.routes.draw do
     namespace 'v1' do
       resources :balances
       get 'stocks/show'
+      get 'stocks/index'
       get 'users/get_stocks_owned_info'
       get 'users/show'
       get 'users/index'
       get 'users/get_balance'
       post 'stocks_purchased_per_people/create'
-      # resources :stocks_purchased_per_people, only: [:create, :index]
+      post 'stocks_sold_per_people/create'
+      get 'stocks_purchased_per_people/index'
       get 'stocks_sold_per_people/index'
     end
   end

@@ -4,7 +4,8 @@ class Stock < ApplicationRecord
     validates    :name,  presence:   true, uniqueness:  {case_sensitive:  false}
     validates    :ticker,  presence:   true, uniqueness:  {case_sensitive:  false}
 
-    def self.find(ticker)
+    def self.get(ticker)
+      Finnhub::GetQuoteService.call(ticker.upcase(), false)
       Stock.find_by(ticker: ticker)
     end
 

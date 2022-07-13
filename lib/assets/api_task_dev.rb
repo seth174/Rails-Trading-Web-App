@@ -1,6 +1,8 @@
 require 'httparty'
 require 'json'
 
+puts('Started')
+
 BASE_URL = 'http://localhost:3000/api/v1'
 
 users_response = HTTParty.get("#{BASE_URL}/users/index")
@@ -22,3 +24,5 @@ if users_response.code == 200
 
 	end
 end
+
+puts("Finish")
