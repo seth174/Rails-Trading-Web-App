@@ -13,7 +13,13 @@ module Api
 
       def stock_graph
         data = StocksController.helpers.get_stock_history(params[:ticker], params[:days])
-        render json: data, status: :ok
+        info = {"min" => data[2], "max" => data[1], "new_graph" => data[0]}
+        render json: info , status: :ok
+      end
+
+      def company_news
+        news = Finnhub::GetCompanyNewsService.call(params[:ticker])
+        render json: news, status: :ok
       end
     end
   end
