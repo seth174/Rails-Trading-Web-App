@@ -56,6 +56,8 @@ Rails.application.routes.draw do
       get 'stocks_purchased_per_people/index'
       get 'stocks_sold_per_people/index'
       get 'stocks/stock_graph'
+      post 'deposits/create'
+      post 'withdraws/create'
     end
   end
 
